@@ -1,0 +1,10 @@
+[
+    {
+        "team": "payments",
+        "message": "Waiting for API dependency"
+    },
+    {
+        "team": "payments",
+        "message": "Testing blocked"
+    }
+]
