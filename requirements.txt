@@ -8,9 +8,13 @@ python-docx
 langchain
 langgraph
 langsmith
+langchain-groq
+python-dotenv
 
 langchain-community
 langchain-huggingface
+
+sentence-transformers
 
 rank_bm25
 
@@ -28,3 +32,7 @@ pydantic
 pandas
 
 tiktoken
+
+pytest
+ruff
+black

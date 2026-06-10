@@ -1,11 +1,11 @@
 from signalnoise.retrieval.dense_retriever import (
-    DenseRetrieval
+    DenseRetriever
 )
 
 
 def test_dense_retrieval():
 
-    retriever = DenseRetrieval()
+    retriever = DenseRetriever()
 
     results = retriever.search(
         query="delivery blockers",

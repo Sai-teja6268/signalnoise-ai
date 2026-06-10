@@ -16,14 +16,18 @@ class HybridRetriever:
         self.sparse_retriever = SparseRetriever(chunks)
         self.rrf_fusion = RRFfusion()
     
-    def search(self, query: str):
+    def search(self, query: str, k: int = 5, document_type: str | None = None, source: str | None = None):
+        if document_type and document_type.lower().strip() in ("string", "none", ""):
+            document_type = None
+        if source and source.lower().strip() in ("string", "none", ""):
+            source = None
 
         dense_results = (
-            self.dense_retriever.search(query)
+            self.dense_retriever.search(query, k=k, document_type=document_type, source=source)
         )
 
         sparse_results = (
-            self.sparse_retriever.search(query)
+            self.sparse_retriever.search(query, k=k, document_type=document_type, source=source)
         )
 
         return self.rrf_fusion.fuse(

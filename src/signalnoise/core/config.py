@@ -1,17 +1,42 @@
-from dotenv import load_dotenv
-import os
-load_dotenv()
+from pydantic_settings import BaseSettings, SettingsConfigDict
+from functools import lru_cache
 
-class settings:
-    MODEL_NAME=os.getenv("MODEL_NAME")
-    LANGCHAIN_API_KEY=os.getenv("LANGCHAIN_API_KEY")
-    LANGCHAIN_TRACING_V2=os.getenv("LANGCHAIN_TRACING_V2")
-    LANGCHAIN_PROJECT=os.getenv("LANGCHAIN_PROJECT")
-    POSTGRES_HOST=os.getenv("POSTGRES_HOST")
-    POSTGRES_PORT=os.getenv("POSTGRES_PORT")
-    POSTGRES_DB=os.getenv("POSTGRES_DB")
-    POSTGRES_USER=os.getenv("POSTGRES_USER")
-    POSTGRES_PASSWORD=os.getenv("POSTGRES_PASSWORD")
+class Settings(BaseSettings):
+    MODEL_NAME: str
+    GROQ_API_KEY: str
+    GROQ_TEMPERATURE: float
+    GROQ_MODEL_NAME: str
+    LANGCHAIN_API_KEY: str
+    LANGCHAIN_TRACING_V2: bool = True
+    LANGCHAIN_PROJECT: str
+    POSTGRES_HOST: str
+    POSTGRES_PORT: int
+    POSTGRES_DB: str
+    POSTGRES_USER: str
+    POSTGRES_PASSWORD: str
 
-settings = settings()
+    model_config = SettingsConfigDict(
+        env_file=".env",
+        env_file_encoding="utf-8",
+        extra="ignore"
+    )
+
+    @property
+    def database_url(self) -> str:
+        return (
+            f"postgresql://"
+            f"{self.POSTGRES_USER}:"
+            f"{self.POSTGRES_PASSWORD}@"
+            f"{self.POSTGRES_HOST}:"
+            f"{self.POSTGRES_PORT}/"
+            f"{self.POSTGRES_DB}"
+        )
+
+@lru_cache
+def get_settings() -> Settings:
+    return Settings()
+
+# Backward compatibility alias
+settings = get_settings()
+
 

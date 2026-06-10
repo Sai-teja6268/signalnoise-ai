@@ -51,9 +51,9 @@ def test_sparse_retrieval():
             f"Result {idx + 1}"
         )
 
-        print(doc.page_content)
+        print(doc.content)
 
-        print(doc.metadata)
+        print(f"Source: {doc.source}, Document ID: {doc.document_id}, Chunk ID: {doc.chunk_id}")
 
         print("-" * 50)
 

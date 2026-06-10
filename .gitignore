@@ -11,3 +11,6 @@ wheels/
 .env
 chroma_db
 .env.*
+logs
+*.pyc
+data
