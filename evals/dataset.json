@@ -1,0 +1,26 @@
+[
+    {
+        "question": "What are the recent customer escalations regarding latency?",
+        "ground_truth": "There have been several customer escalations related to increased API latency during peak hours.",
+        "expected_contexts": [
+            "Customer XYZ reported severe latency in the API response times.",
+            "Latency metrics show a 30% increase during 9AM-11AM window."
+        ]
+    },
+    {
+        "question": "Are there any indicators of team burnout in the recent sprint retrospectives?",
+        "ground_truth": "Yes, multiple team members mentioned working over the weekend and feeling overwhelmed by the number of ad-hoc requests.",
+        "expected_contexts": [
+            "Sprint retrospective notes: Team expressed frustration over weekend work.",
+            "Ad-hoc requests have increased by 50%, leading to burnout symptoms."
+        ]
+    },
+    {
+        "question": "What dependency risks are flagged for the Q3 release?",
+        "ground_truth": "The Q3 release is at risk due to a delay in the external payment gateway integration.",
+        "expected_contexts": [
+            "Payment gateway API changes delayed by vendor.",
+            "Q3 release schedule is highly dependent on the new payment module."
+        ]
+    }
+]

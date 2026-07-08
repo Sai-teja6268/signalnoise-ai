@@ -161,6 +161,12 @@ This boots:
 
 ---
 
+## 📊 Evaluation
+
+Integrated RAGAS and LangSmith to evaluate retrieval quality and response generation using metrics such as Faithfulness, Answer Relevancy, Context Precision, and Context Recall. Evaluation scripts are isolated in the `evals/` directory and can be run locally or integrated into CI/CD pipelines.
+
+---
+
 ## 🧪 Testing
 
 The project includes unit, integration, and E2E smoke tests.

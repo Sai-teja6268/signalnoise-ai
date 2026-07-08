@@ -36,3 +36,8 @@ tiktoken
 pytest
 ruff
 black
+
+# Evaluation
+ragas
+datasets
+nest-asyncio
